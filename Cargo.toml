@@ -1,30 +1,22 @@
 [package]
 name = "systemicons"
-version = "0.7.0"
-description = "With this lib you can retrive the system icon which is associated to a certain file extension. The icon will be in the .png format. Windows, macOS and Linux (GTK) are supported."
+version = "0.8.0"
+description = "With this lib you can retrive the system icon which is associated to a certain file extension. The icon will be in the .png format. Only Windows is supported."
 authors = [
     "Uwe Riegel <uriegel@hotmail.de>",
     "Victor Aremu <victor.olorunbumi@gmail.com>",
     "Jeremy Soller <jeremy@system76.com>",
+    "David Jimenez <dubisdev@gmail.com>"
 ]
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/uriegel/systemicons"
+repository = "https://github.com/RokiiApp/systemicons"
 readme = "README.md"
 
-[target.'cfg(not(any(target_os="windows",target_os="macos")))'.dependencies]
-freedesktop-icons = "0.2"
-lazy_static = "1.4"
-xdg-mime = "0.3"
-
-[target.'cfg(target_os="windows")'.dependencies]
+[dependencies]
 winapi = { version = "0.3", features = ["winuser"] }
 winit = "0.25"
 image = "0.23"
-
-[target.'cfg(target_os="macos")'.dependencies]
-cocoa = "0.24.0"
-objc = "0.2.7"
 
 [dev-dependencies]
 tokio = { version = "1.8", features = ["full"] }
